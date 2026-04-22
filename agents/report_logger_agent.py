@@ -1,22 +1,92 @@
-from tools.report_writer import write_report, write_log
+from __future__ import annotations
+
+from pathlib import Path
+from time import perf_counter
+
+from config.llm import invoke_llm
+from config.pipeline_config import DEFAULT_MODEL
+from state.shared_state import SharedState, add_trace
+from tools.report_writer import build_report_markdown, write_report, write_trace_log
+
 
 class ReportLoggerAgent:
-    def run(self, state):
-        report = f"""
-# Monthly Report
+    def __init__(
+            self,
+            report_path: str,
+            trace_path: str,
+            prompt_path: str,
+            model: str = DEFAULT_MODEL,
+    ):
+        self.report_path = report_path
+        self.trace_path = trace_path
+        self.prompt_path = prompt_path
+        self.model = model
 
-Expenses:
-{state['expense_summary']}
+    def _load_prompt(self) -> str:
+        return Path(self.prompt_path).read_text(encoding="utf-8").strip()
 
-Budget:
-{state['budget_analysis']}
+    def run(self, state: SharedState) -> SharedState:
+        start = perf_counter()
 
-Savings:
-{state['savings_context']}
-"""
+        report_file = None
+        trace_file = None
 
-        write_report("outputs/monthly_report.md", report)
-        write_log("logs/agent_trace.json", state["trace"])
+        try:
+            report_content = build_report_markdown(state)
 
-        state["final_summary"] = "Done"
+            prompt = self._load_prompt()
+            llm_input = f"{prompt}\n\n{report_content}"
+            llm_output = invoke_llm(llm_input, model=self.model)
+
+            if llm_output:
+                state["llm_report_refinement"] = llm_output  # just store
+
+            final_report = report_content
+
+            report_file = write_report(self.report_path, final_report)
+
+            add_trace(
+                state,
+                agent="ReportLoggerAgent",
+                event="completed",
+                details={
+                    "report_path": report_file,
+                    "duration_ms": round((perf_counter() - start) * 1000, 2),
+                },
+            )
+
+            trace_file = write_trace_log(self.trace_path, state.get("trace", []))
+
+            state["report_path"] = report_file
+            state["trace_path"] = trace_file
+
+            state["final_summary"] = (
+                "✔ Expense tracking completed\n"
+                "✔ Budget analysis completed\n"
+                "✔ Savings plan generated\n"
+                f"✔ Report created at: {report_file}\n"
+                "System executed successfully 🚀"
+            )
+
+        except Exception as exc:
+            add_trace(
+                state,
+                agent="ReportLoggerAgent",
+                event="failed",
+                status="error",
+                details={"error": str(exc)},
+            )
+
+            report_file = write_report(
+                self.report_path,
+                f"# Error Report\n\nSomething went wrong:\n{exc}",
+            )
+
+            trace_file = write_trace_log(self.trace_path, state.get("trace", []))
+
+            state["report_path"] = report_file
+            state["trace_path"] = trace_file
+
+            state["final_summary"] = f"⚠️ Report generation failed: {exc}"
+
         return state

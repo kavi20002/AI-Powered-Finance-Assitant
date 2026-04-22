@@ -1,0 +1,6 @@
+date,description,category,amount
+2026-04-01,Unknown item,,500
+2026-04-02,Invalid amount,food,abc
+2026-04-03,Zero value,transport,0
+2026-04-04,Negative value,food,-200
+2026-04-05,Big expense,entertainment,100000
