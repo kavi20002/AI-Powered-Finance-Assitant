@@ -1,0 +1,11 @@
+
+# Monthly Report
+
+Expenses:
+{'food': 500.0, 'transport': 200.0, 'entertainment': 1000.0}
+
+Budget:
+{'food': {'spent': 500.0, 'budget': 2000, 'status': 'ok'}, 'transport': {'spent': 200.0, 'budget': 1000, 'status': 'ok'}, 'entertainment': {'spent': 1000.0, 'budget': 1500, 'status': 'ok'}}
+
+Savings:
+{'api': {'amount': 1.0, 'base': 'EUR', 'date': '2026-04-21', 'rates': {'AUD': 1.6423, 'BRL': 5.841, 'CAD': 1.607, 'CHF': 0.9172, 'CNY': 8.0202, 'CZK': 24.301, 'DKK': 7.4734, 'GBP': 0.87035, 'HKD': 9.214, 'HUF': 362.15, 'IDR': 20154.05, 'ILS': 3.5202, 'INR': 110.0275, 'ISK': 143.6, 'JPY': 187.14, 'KRW': 1729.57, 'MXN': 20.3666, 'MYR': 4.6491, 'NOK': 10.967, 'NZD': 1.9907, 'PHP': 70.407, 'PLN': 4.2295, 'RON': 5.0984, 'SEK': 10.7495, 'SGD': 1.4961, 'THB': 37.696, 'TRY': 52.8274, 'USD': 1.1767, 'ZAR': 19.262}}, 'plan': {'target': 1660.0}}

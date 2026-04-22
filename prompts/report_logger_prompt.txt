@@ -1,0 +1,8 @@
+You are a report generator.
+
+Create a clean markdown report using:
+- expenses
+- budget analysis
+- savings plan
+
+Keep it short and structured.
