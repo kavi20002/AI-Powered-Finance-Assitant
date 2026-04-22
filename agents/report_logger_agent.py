@@ -8,6 +8,9 @@ from config.pipeline_config import DEFAULT_MODEL
 from state.shared_state import SharedState, add_trace
 from tools.report_writer import build_report_markdown, write_report, write_trace_log
 
+from tools.report_to_image import convert_md_to_image
+from tools.report_to_html import convert_md_to_html
+from tools.report_to_pdf import convert_html_to_pdf
 
 class ReportLoggerAgent:
     def __init__(
@@ -45,12 +48,25 @@ class ReportLoggerAgent:
 
             report_file = write_report(self.report_path, final_report)
 
+            html_path = str(self.report_path).replace(".md", ".html")
+            convert_md_to_html(report_file, html_path)
+
+            image_path = str(self.report_path).replace(".md", ".png").replace("outputs", "docs")
+            convert_md_to_image(report_file, image_path)
+            state["report_image"] = image_path
+
+            pdf_path = str(self.report_path).replace(".md", ".pdf").replace("outputs", "docs")
+            convert_html_to_pdf(html_path, pdf_path)
+            state["report_pdf"] = pdf_path
+
             add_trace(
                 state,
                 agent="ReportLoggerAgent",
                 event="completed",
                 details={
                     "report_path": report_file,
+                    "image_path": image_path,
+                    "pdf_path": pdf_path,
                     "duration_ms": round((perf_counter() - start) * 1000, 2),
                 },
             )
@@ -65,6 +81,8 @@ class ReportLoggerAgent:
                 "✔ Budget analysis completed\n"
                 "✔ Savings plan generated\n"
                 f"✔ Report created at: {report_file}\n"
+                f"✔ Image report: {image_path}\n"
+                f"✔ PDF report: {pdf_path}\n"
                 "System executed successfully 🚀"
             )
 
