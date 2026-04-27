@@ -35,6 +35,18 @@
 
 ---
 
+## 📈 Forecast
+- **Predicted Next Spending:** 1,967.86
+
+---
+
+## 📊 Charts
+
+![Bar Chart](C:\Users\kavinduk\Desktop\personal-finance-mas\AI-Powered-Finance-Assitant\docs\bar_chart.png)
+![Pie Chart](C:\Users\kavinduk\Desktop\personal-finance-mas\AI-Powered-Finance-Assitant\docs\pie_chart.png)
+
+---
+
 ## 📈 Insight
 You are overspending ⚠️.
 

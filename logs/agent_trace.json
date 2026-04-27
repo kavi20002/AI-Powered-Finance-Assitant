@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-04-22T09:52:29.899359+00:00",
+    "timestamp": "2026-04-27T05:27:50.883361+00:00",
     "agent": "ExpenseTrackerAgent",
     "event": "completed",
     "status": "success",
@@ -8,22 +8,22 @@
       "transactions": 8,
       "total_spent": 12100.0,
       "top_category": "entertainment",
-      "duration_ms": 2760.01
+      "duration_ms": 2476.85
     }
   },
   {
-    "timestamp": "2026-04-22T09:52:32.337585+00:00",
+    "timestamp": "2026-04-27T05:27:53.317843+00:00",
     "agent": "BudgetAdvisorAgent",
     "event": "completed",
     "status": "success",
     "details": {
       "categories": 3,
       "overspent_categories": 2,
-      "duration_ms": 2436.78
+      "duration_ms": 2433.29
     }
   },
   {
-    "timestamp": "2026-04-22T09:52:35.844419+00:00",
+    "timestamp": "2026-04-27T05:27:56.814733+00:00",
     "agent": "SavingsGoalAgent",
     "event": "completed",
     "status": "success",
@@ -32,11 +32,11 @@
       "total_spent": 12100.0,
       "leftover": -2100.0,
       "savings_target": 0,
-      "duration_ms": 3505.53
+      "duration_ms": 3496.29
     }
   },
   {
-    "timestamp": "2026-04-22T09:52:40.985439+00:00",
+    "timestamp": "2026-04-27T05:28:30.797970+00:00",
     "agent": "ReportLoggerAgent",
     "event": "completed",
     "status": "success",
@@ -44,7 +44,7 @@
       "report_path": "C:\\Users\\kavinduk\\Desktop\\personal-finance-mas\\AI-Powered-Finance-Assitant\\outputs\\monthly_report.md",
       "image_path": "C:\\Users\\kavinduk\\Desktop\\personal-finance-mas\\AI-Powered-Finance-Assitant\\docs\\monthly_report.png",
       "pdf_path": "C:\\Users\\kavinduk\\Desktop\\personal-finance-mas\\AI-Powered-Finance-Assitant\\docs\\monthly_report.pdf",
-      "duration_ms": 5139.96
+      "duration_ms": 33981.02
     }
   }
 ]

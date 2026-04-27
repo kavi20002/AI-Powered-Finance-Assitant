@@ -8,6 +8,8 @@ def convert_html_to_pdf(html_path: str, output_path: str):
     if not html_file.exists():
         raise FileNotFoundError(f"HTML file not found: {html_path}")
 
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+
     config = pdfkit.configuration(
         wkhtmltopdf=r"C:\Users\kavinduk\wkhtmltopdf\bin\wkhtmltopdf.exe"
     )
@@ -23,13 +25,17 @@ def convert_html_to_pdf(html_path: str, output_path: str):
         "zoom": "0.85",
         "dpi": 300,
         "no-outline": None,
+        "quiet": ""
     }
 
-    pdfkit.from_file(
-        str(html_file),
-        output_path,
-        configuration=config,
-        options=options
-    )
+    try:
+        pdfkit.from_file(
+            str(html_file),
+            output_path,
+            configuration=config,
+            options=options
+        )
+    except Exception as e:
+        raise RuntimeError(f"PDF generation failed: {e}")
 
-    return output_path
+    return str(output_path)

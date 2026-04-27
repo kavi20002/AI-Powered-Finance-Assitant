@@ -8,6 +8,9 @@ def convert_md_to_image(md_path: str, output_path: str):
     md_text = Path(md_path).read_text(encoding="utf-8")
 
     html = markdown.markdown(md_text, extensions=["tables"])
+
+    html = html.replace("../docs/", "docs/")
+
     styled_html = get_styled_html(html)
 
     temp_html = Path(md_path).with_suffix(".html")
@@ -18,7 +21,7 @@ def convert_md_to_image(md_path: str, output_path: str):
     hti.screenshot(
         html_file=str(temp_html),
         save_as=Path(output_path).name,
-        size=(1200, 1800)   # 🔥 HIGH RESOLUTION
+        size=(1240, 2200)
     )
 
     return output_path
