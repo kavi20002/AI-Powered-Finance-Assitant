@@ -13,7 +13,7 @@ from config.pipeline_config import (
 from state.shared_state import SharedState, add_trace
 from tools.csv_reader import calculate_total_spending
 from tools.savings_api import build_savings_context
-
+from utils.console_ui import section, success, info
 
 class SavingsGoalAgent:
     def __init__(
@@ -37,6 +37,9 @@ class SavingsGoalAgent:
         start = perf_counter()
 
         try:
+            section("Savings Goal")
+            info("Computing savings recommendation...")
+
             transactions = state.get("transactions", []) or []
             monthly_income = float(state.get("monthly_income", 0.0))
 
@@ -76,6 +79,9 @@ class SavingsGoalAgent:
                     state["llm_savings_output"] = (
                         f"Recommended monthly savings target: {target}."
                     )
+
+            success(f"Leftover: {leftover}")
+            success("Savings plan generated")
 
             add_trace(
                 state,

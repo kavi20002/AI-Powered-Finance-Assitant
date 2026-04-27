@@ -14,6 +14,7 @@ from tools.report_to_pdf import convert_html_to_pdf
 
 from tools.chart_generator import generate_bar_chart, generate_pie_chart
 from tools.forecast import forecast_spending
+from utils.console_ui import section, success, info, warn
 
 class ReportLoggerAgent:
     def __init__(
@@ -38,6 +39,9 @@ class ReportLoggerAgent:
         trace_file = None
 
         try:
+            section("Report & Logger")
+            info("Generating report and files...")
+
             summary = state.get("expense_summary", {})
 
             bar_chart_path = "docs/bar_chart.png"
@@ -72,13 +76,17 @@ class ReportLoggerAgent:
             convert_md_to_image(report_file, image_path)
             state["report_image"] = image_path
 
+            success(f"Image generated: {image_path}")
+
             pdf_path = str(self.report_path).replace(".md", ".pdf").replace("outputs", "docs")
 
             try:
                 convert_html_to_pdf(html_path, pdf_path)
                 state["report_pdf"] = pdf_path
+                success(f"PDF generated: {pdf_path}")
             except Exception as pdf_error:
                 state["report_pdf"] = "failed"
+                warn(f"PDF failed: {pdf_error}")
 
                 add_trace(
                     state,
@@ -88,6 +96,7 @@ class ReportLoggerAgent:
                     details={"error":  str(pdf_error)},
                 )
 
+            success("Pipeline complete!")
             add_trace(
                 state,
                 agent="ReportLoggerAgent",

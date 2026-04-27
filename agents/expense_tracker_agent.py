@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from time import perf_counter
-
+from utils.console_ui import section, success, info
 from config.llm import invoke_llm
 from config.pipeline_config import DEFAULT_MODEL
 from state.shared_state import SharedState, add_trace
@@ -27,6 +27,9 @@ class ExpenseTrackerAgent:
         start = perf_counter()
 
         try:
+            section("Expense Tracker")
+            info("Starting analysis...")
+
             transactions = read_transactions_csv(self.csv_path) or []
 
             if not transactions:
@@ -61,6 +64,9 @@ class ExpenseTrackerAgent:
                 state["llm_expense_output"] = (
                     f"Top spending category is '{top_category}' with total {top_value}."
                 )
+
+            success(f"Categories: {list(summary.keys())}")
+            success("LLM insight generated")
 
             add_trace(
                 state,

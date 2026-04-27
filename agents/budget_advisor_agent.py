@@ -11,7 +11,7 @@ from tools.budget_checker import (
     compare_budget_vs_spending,
     read_budget_json,
 )
-
+from utils.console_ui import section, success, info
 
 class BudgetAdvisorAgent:
     def __init__(self, budget_path: str, prompt_path: str, model: str = DEFAULT_MODEL):
@@ -26,6 +26,9 @@ class BudgetAdvisorAgent:
         start = perf_counter()
 
         try:
+            section("Budget Advisor")
+            info("Comparing budget vs actual...")
+
             expense_summary = state.get("expense_summary", {}) or {}
 
             budget = read_budget_json(self.budget_path)
@@ -57,6 +60,8 @@ class BudgetAdvisorAgent:
                 [v for v in analysis.values() if v.get("status") == "overspent"]
             )
 
+            success("Budget analysis completed")
+            
             add_trace(
                 state,
                 agent="BudgetAdvisorAgent",

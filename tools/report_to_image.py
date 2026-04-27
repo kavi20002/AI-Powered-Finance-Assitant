@@ -21,7 +21,7 @@ def convert_md_to_image(md_path: str, output_path: str):
     hti.screenshot(
         html_file=str(temp_html),
         save_as=Path(output_path).name,
-        size=(1240, 2200)
+        size=(1240, 2400)
     )
 
     return output_path

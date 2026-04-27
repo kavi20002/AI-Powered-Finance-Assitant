@@ -6,32 +6,70 @@
         <style>
             body {
                 font-family: 'Segoe UI', sans-serif;
-                padding: 25px;
-                background: #f5f7fa;
+                padding: 20px;
+                background: #f4f6f9;
                 color: #333;
             }
 
+            /* HEADER */
             h1 {
-                color: #2c3e50;
-                border-bottom: 3px solid #4CAF50;
+                color: #1e293b;
+                border-bottom: 4px solid #4CAF50;
                 padding-bottom: 8px;
-                font-size: 24px;
+                font-size: 26px;
+                margin-bottom: 15px;
             }
 
             h2 {
-                color: #34495e;
+                color: #334155;
                 margin-top: 20px;
                 font-size: 18px;
             }
 
-            ul {
-                margin: 5px 0 10px 20px;
-            }
-
             hr {
                 margin: 10px 0;
+                border: none;
+                border-top: 1px solid #ddd;
             }
 
+            /* CARD STYLE */
+            .section {
+                background: white;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+                margin-bottom: 15px;
+                page-break-inside: avoid;
+            }
+
+            /* KPI BOXES */
+            .kpi-container {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            .kpi {
+                flex: 1;
+                background: linear-gradient(135deg, #4CAF50, #2e7d32);
+                color: white;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .kpi h3 {
+                margin: 0;
+                font-size: 16px;
+            }
+
+            .kpi span {
+                font-size: 12px;
+                opacity: 0.8;
+            }
+
+            /* TABLE */
             table {
                 width: 100%;
                 border-collapse: collapse;
@@ -52,33 +90,24 @@
 
             td {
                 padding: 8px;
-                border-bottom: 1px solid #ddd;
-            }
-            
-            tr:hover {
-                background-color: transparent;
+                border-bottom: 1px solid #eee;
             }
 
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
 
+            /* CHARTS */
             img {
                 display: block;
-                margin: 10px auto;
-                max-width: 100%;
-                height: auto;
-                page-break-inside: avoid;
-            }
-
-
-            .section {
-                background: white;
-                padding: 15px;
+                margin: 15px auto;
+                max-width: 90%;
                 border-radius: 8px;
-                box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-                margin-bottom: 15px;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.1);
                 page-break-inside: avoid;
             }
 
-
+            /* STATUS COLORS */
             .good {
                 color: #2e7d32;
                 font-weight: bold;
@@ -89,6 +118,14 @@
                 font-weight: bold;
             }
 
+            /* FOOTER */
+            footer {
+                text-align: center;
+                margin-top: 15px;
+                font-size: 12px;
+                color: #888;
+            }
+
             @page {
                 size: A4;
                 margin: 10mm;
@@ -97,15 +134,16 @@
     </head>
 
     <body>
+
         <div class="section">
             <h1>💰 AI Finance Monthly Report</h1>
 <hr />
 <h2>📊 Overview</h2>
 <ul>
 <li><strong>Monthly Income:</strong> 10,000.00</li>
-<li><strong>Total Expenses:</strong> 12,100.00</li>
-<li><strong>Remaining Balance:</strong> -2,100.00</li>
-<li><strong>Top Category:</strong> Entertainment</li>
+<li><strong>Total Expenses:</strong> 4,500.00</li>
+<li><strong>Remaining Balance:</strong> 5,500.00</li>
+<li><strong>Top Category:</strong> Food</li>
 </ul>
 <hr />
 <h2>🍔 Expense Breakdown</h2>
@@ -119,15 +157,15 @@
 <tbody>
 <tr>
 <td>Entertainment</td>
-<td>5,500.00</td>
+<td>1,400.00</td>
 </tr>
 <tr>
 <td>Food</td>
-<td>5,100.00</td>
+<td>2,450.00</td>
 </tr>
 <tr>
 <td>Transport</td>
-<td>1,500.00</td>
+<td>650.00</td>
 </tr>
 </tbody>
 </table>
@@ -144,30 +182,30 @@
 <tbody>
 <tr>
 <td>Entertainment</td>
-<td>overspent</td>
-<td>-3,500.00</td>
+<td>within_budget</td>
+<td>600.00</td>
 </tr>
 <tr>
 <td>Food</td>
-<td>overspent</td>
-<td>-2,100.00</td>
+<td>within_budget</td>
+<td>550.00</td>
 </tr>
 <tr>
 <td>Transport</td>
 <td>within_budget</td>
-<td>0.00</td>
+<td>850.00</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2>💡 Savings Plan</h2>
 <ul>
-<li><strong>Recommended Target:</strong> 0.00</li>
+<li><strong>Recommended Target:</strong> 1,100.00</li>
 </ul>
 <hr />
 <h2>📈 Forecast</h2>
 <ul>
-<li><strong>Predicted Next Spending:</strong> 1,967.86</li>
+<li><strong>Predicted Next Spending:</strong> 537.50</li>
 </ul>
 <hr />
 <h2>📊 Charts</h2>
@@ -175,10 +213,15 @@
 <img alt="Pie Chart" src="C:\Users\kavinduk\Desktop\personal-finance-mas\AI-Powered-Finance-Assitant\docs\pie_chart.png" /></p>
 <hr />
 <h2>📈 Insight</h2>
-<p>You are overspending ⚠️.</p>
+<p>You are managing well ✅.</p>
 <hr />
 <p>✨ Generated by AI Finance Assistant</p>
         </div>
+
+        <footer>
+            Generated by AI Finance Assistant 🚀
+        </footer>
+
     </body>
     </html>
     
