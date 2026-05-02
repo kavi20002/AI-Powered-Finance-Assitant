@@ -32,8 +32,8 @@ def build_report_markdown(state):
     bar_chart = state.get("bar_chart", "")
     pie_chart = state.get("pie_chart", "")
 
-    bar_chart = str(Path(bar_chart).resolve()) if bar_chart else ""
-    pie_chart = str(Path(pie_chart).resolve()) if pie_chart else ""
+    bar_chart = f"../{Path(bar_chart).as_posix()}" if bar_chart else ""
+    pie_chart = f"../{Path(pie_chart).as_posix()}" if pie_chart else ""
 
     if not summary or all(v == 0 for v in summary.values()):
         top = "none"
@@ -47,6 +47,20 @@ def build_report_markdown(state):
     ]
 
     savings_target = savings.get("plan", {}).get("target", 0)
+
+    forecast_note = ""
+    transactions = state.get("transactions", [])
+    avg_spending = total/ len(transactions) if transactions else 0
+
+    if forecast <= 0:
+        forecast_note =  "ℹ️ Not enough data to predict future spending."
+    elif forecast > avg_spending:
+        forecast_note = "⚠️ Spending trend is increasing. You may overspend next month."
+    elif forecast < avg_spending:
+        forecast_note = "✅ Spending trend is decreasing. Good financial control."
+    else:
+        forecast_note = "ℹ️ Spending trend is stable."
+
 
     return f"""# 💰 AI Finance Monthly Report
 
@@ -91,6 +105,8 @@ def build_report_markdown(state):
 
 ## 📈 Insight
 You are {"overspending ⚠️" if balance < 0 else "managing well ✅"}.
+
+{forecast_note}
 
 ---
 

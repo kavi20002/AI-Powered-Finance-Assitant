@@ -8,7 +8,8 @@ def convert_md_to_html(md_path: str, html_path: str):
 
     html = markdown.markdown(md_text, extensions=["tables"])
 
-    html = html.replace("../docs/", "docs/")
+    docs_path = Path("docs").resolve().as_posix()
+    html = html.replace("../docs/", f"file:///{docs_path}/")
 
     styled_html = get_styled_html(html)
 

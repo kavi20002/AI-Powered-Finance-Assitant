@@ -4,8 +4,8 @@
 
 ## 📊 Overview
 - **Monthly Income:** 10,000.00
-- **Total Expenses:** 12,100.00
-- **Remaining Balance:** -2,100.00
+- **Total Expenses:** 100,300.00
+- **Remaining Balance:** -90,300.00
 - **Top Category:** Entertainment
 
 ---
@@ -14,9 +14,10 @@
 
 | Category | Amount |
 | --- | --- |
-| Entertainment | 5,500.00 |
-| Food | 5,100.00 |
-| Transport | 1,500.00 |
+| Entertainment | 100,000.00 |
+| Food | -200.00 |
+| Transport | 0.00 |
+| Uncategorized | 500.00 |
 
 ---
 
@@ -24,9 +25,10 @@
 
 | Category | Status | Difference |
 | --- | --- | --- |
-| Entertainment | overspent | -3,500.00 |
-| Food | overspent | -2,100.00 |
-| Transport | within_budget | 0.00 |
+| Entertainment | overspent | -98,000.00 |
+| Food | not_used | 3,000.00 |
+| Transport | not_used | 1,500.00 |
+| Uncategorized | unplanned | -500.00 |
 
 ---
 
@@ -36,19 +38,21 @@
 ---
 
 ## 📈 Forecast
-- **Predicted Next Spending:** 1,967.86
+- **Predicted Next Spending:** 79,700.00
 
 ---
 
 ## 📊 Charts
 
-![Bar Chart](C:\Users\kavinduk\Desktop\personal-finance-mas\AI-Powered-Finance-Assitant\docs\bar_chart.png)
-![Pie Chart](C:\Users\kavinduk\Desktop\personal-finance-mas\AI-Powered-Finance-Assitant\docs\pie_chart.png)
+![Bar Chart](../docs/bar_chart.png)
+![Pie Chart](../docs/pie_chart.png)
 
 ---
 
 ## 📈 Insight
 You are overspending ⚠️.
+
+⚠️ Spending trend is increasing. You may overspend next month.
 
 ---
 
