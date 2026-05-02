@@ -4,9 +4,9 @@
 
 ## 📊 Overview
 - **Monthly Income:** 10,000.00
-- **Total Expenses:** 4,500.00
-- **Remaining Balance:** 5,500.00
-- **Top Category:** Food
+- **Total Expenses:** 12,100.00
+- **Remaining Balance:** -2,100.00
+- **Top Category:** Entertainment
 
 ---
 
@@ -14,9 +14,9 @@
 
 | Category | Amount |
 | --- | --- |
-| Entertainment | 1,400.00 |
-| Food | 2,450.00 |
-| Transport | 650.00 |
+| Entertainment | 5,500.00 |
+| Food | 5,100.00 |
+| Transport | 1,500.00 |
 
 ---
 
@@ -24,19 +24,19 @@
 
 | Category | Status | Difference |
 | --- | --- | --- |
-| Entertainment | within_budget | 600.00 |
-| Food | within_budget | 550.00 |
-| Transport | within_budget | 850.00 |
+| Entertainment | overspent | -3,500.00 |
+| Food | overspent | -2,100.00 |
+| Transport | within_budget | 0.00 |
 
 ---
 
 ## 💡 Savings Plan
-- **Recommended Target:** 1,100.00
+- **Recommended Target:** 0.00
 
 ---
 
 ## 📈 Forecast
-- **Predicted Next Spending:** 537.50
+- **Predicted Next Spending:** 1,967.86
 
 ---
 
@@ -48,7 +48,7 @@
 ---
 
 ## 📈 Insight
-You are managing well ✅.
+You are overspending ⚠️.
 
 ---
 

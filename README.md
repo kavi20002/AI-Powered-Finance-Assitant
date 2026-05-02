@@ -39,25 +39,24 @@ Each agent processes data and passes results through a shared state.
 
 ## 📁 Project Structure
 
-
 AI-Powered-Finance-Assistant/
-│
-├── agents/
-├── config/
-├── data/
-├── docs/
-├── logs/
-├── orchestrator/
-├── outputs/
-├── prompts/
-├── scripts/
-├── state/
-├── tests/
-├── tools/
-│
-├── main.py
-├── requirements.txt
-└── README.md
+
+- agents/
+- config/
+- data/
+- docs/
+- logs/
+- orchestrator/
+- outputs/
+- prompts/
+- scripts/
+- state/
+- tests/
+- tools/
+- utils/
+- main.py
+- requirements.txt
+- README.md
 
 
 ---

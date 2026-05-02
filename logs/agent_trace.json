@@ -1,42 +1,42 @@
 [
   {
-    "timestamp": "2026-04-27T09:30:37.771637+00:00",
+    "timestamp": "2026-04-28T16:43:52.016443+00:00",
     "agent": "ExpenseTrackerAgent",
     "event": "completed",
     "status": "success",
     "details": {
-      "transactions": 9,
-      "total_spent": 4500.0,
-      "top_category": "food",
-      "duration_ms": 2456.79
+      "transactions": 8,
+      "total_spent": 12100.0,
+      "top_category": "entertainment",
+      "duration_ms": 2563.12
     }
   },
   {
-    "timestamp": "2026-04-27T09:30:40.703570+00:00",
+    "timestamp": "2026-04-28T16:43:54.576483+00:00",
     "agent": "BudgetAdvisorAgent",
     "event": "completed",
     "status": "success",
     "details": {
       "categories": 3,
-      "overspent_categories": 0,
-      "duration_ms": 2930.15
+      "overspent_categories": 2,
+      "duration_ms": 2559.08
     }
   },
   {
-    "timestamp": "2026-04-27T09:30:45.492543+00:00",
+    "timestamp": "2026-04-28T16:43:59.283066+00:00",
     "agent": "SavingsGoalAgent",
     "event": "completed",
     "status": "success",
     "details": {
       "monthly_income": 10000.0,
-      "total_spent": 4500.0,
-      "leftover": 5500.0,
-      "savings_target": 1100.0,
-      "duration_ms": 4788.03
+      "total_spent": 12100.0,
+      "leftover": -2100.0,
+      "savings_target": 0,
+      "duration_ms": 4705.19
     }
   },
   {
-    "timestamp": "2026-04-27T09:30:58.421727+00:00",
+    "timestamp": "2026-04-28T16:44:07.829882+00:00",
     "agent": "ReportLoggerAgent",
     "event": "completed",
     "status": "success",
@@ -44,7 +44,7 @@
       "report_path": "C:\\Users\\kavinduk\\Desktop\\personal-finance-mas\\AI-Powered-Finance-Assitant\\outputs\\monthly_report.md",
       "image_path": "C:\\Users\\kavinduk\\Desktop\\personal-finance-mas\\AI-Powered-Finance-Assitant\\docs\\monthly_report.png",
       "pdf_path": "C:\\Users\\kavinduk\\Desktop\\personal-finance-mas\\AI-Powered-Finance-Assitant\\docs\\monthly_report.pdf",
-      "duration_ms": 12928.61
+      "duration_ms": 8545.59
     }
   }
 ]
